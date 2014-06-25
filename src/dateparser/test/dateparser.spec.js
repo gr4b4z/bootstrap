@@ -83,6 +83,9 @@ describe('date parser', function () {
     it('should not work for invalid number of days in February', function() {
       expect(dateParser.parse('29.02.2013', 'dd.MM.yyyy')).toBeUndefined();
     });
+  it('should not work for 0 number of days', function() {
+      expect(dateParser.parse('00.02.2013', 'dd.MM.yyyy')).toBeUndefined();
+    });
 
     it('should work for 29 days in February for leap years', function() {
       expectParse('29.02.2000', 'dd.MM.yyyy', new Date(2000, 1, 29, 0));
